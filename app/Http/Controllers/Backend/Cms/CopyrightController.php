@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Http\Controllers\Backend\Cms;
+use App\Models\Copyright;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\DataTables\Cms\CopyrightDataTable;
+use Illuminate\Support\Facades\{DB, Session};
+class CopyrightController extends Controller {
+    public function index(CopyrightDataTable $copyright) {
+        return $copyright->render('admin.cms.copyright.index', ['title' => 'copyright']);
+    }
+
+    public function store(Request $request) {
+        try {
+            $copyright = Copyright::create($request->except('_token'));
+            Session::flash('message', 'data create success');
+            Session::flash('alert-class', 'alert-success');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Try again later Something went wrong');
+        }
+    }
+
+    public function update(Request $request, $id) {
+        try {
+            $copyright = Copyright::findorfail($id);
+            $copyright->update($request->except('_token'));
+            Session::flash('message', 'data updated success');
+            Session::flash('alert-class', 'alert-success');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Try again later Something went wrong');
+        }
+    }
+
+    public function destroy(string $id) {
+        try {
+            DB::beginTransaction();
+            $copyright = Copyright::findOrFail($id);
+            $copyright->delete();
+            DB::commit();
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'Try again later Something went wrong');
+        }
+        Session::flash('message', 'data Deleted success');
+        Session::flash('alert-class', 'alert-danger');
+        return redirect()->back()->with('success', 'Delete Successfully copyright');
+    }
+}
