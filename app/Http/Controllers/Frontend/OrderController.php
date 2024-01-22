@@ -103,7 +103,8 @@ class OrderController extends Controller
                         $imageExtension = $image->getClientOriginalExtension();
                         if (!in_array($imageExtension, $allowedExtensions))
                             return redirect()->back()->withErrors(['error' => 'img ext not allowed'])->withInput();
-                        $hashedFileName = $orderService->name . '_' . $image->hashName();
+                        //$hashedFileName = $orderService->name . '_' . $image->hashName();
+                        $hashedFileName = $image->getClientOriginalName();
                         $filePath = $userName . '/' . $order->slug . '/' . $orderService->name . '/' . $hashedFileName;
                         Storage::disk('service_images')->put($filePath, file_get_contents($image));
                         $photo = new ServiceImage([
@@ -124,7 +125,8 @@ class OrderController extends Controller
                         $imageExtension = $image->getClientOriginalExtension();
                         if (!in_array($imageExtension, $allowedExtensions))
                             return redirect()->back()->withErrors(['error' => 'img ext not allowed'])->withInput();
-                        $hashedFileName = $orderService->name . '_reference' . '_' . $image->hashName();
+                        //$hashedFileName = $orderService->name . '_reference' . '_' . $image->hashName();
+                        $hashedFileName = $orderService->name . '_reference' . '_' . $image->getClientOriginalName();
                         $filePath = $userName . '/' . $order->slug . '/' . $orderService->name . '/' . $hashedFileName;
                         Storage::disk('service_images')->put($filePath, file_get_contents($image));
                         $photo = new ServiceImage([
@@ -178,7 +180,8 @@ class OrderController extends Controller
                         $imageExtension = $image->getClientOriginalExtension();
                         if (!in_array($imageExtension, $allowedExtensions))
                             return redirect()->back()->withErrors(['error' => 'img ext not allowed'])->withInput();
-                        $hashedFileName = $orderService->name . '_' . $image->hashName();
+                        //$hashedFileName = $orderService->name . '_' . $image->hashName();
+                        $hashedFileName = $image->getClientOriginalName();
                         $filePath = $userName . '/' . $order->slug . '/' . $orderService->name . '/' . $hashedFileName;
                         Storage::disk('service_images')->put($filePath, file_get_contents($image));
                         $photo = new ServiceImage([
@@ -199,7 +202,8 @@ class OrderController extends Controller
                          $imageExtension = $image->getClientOriginalExtension();
                          if (!in_array($imageExtension, $allowedExtensions))
                              return redirect()->back()->withErrors(['error' => 'img ext not allowed'])->withInput();
-                         $hashedFileName = $orderService->name . '_reference' . '_' . $image->hashName();
+                         //$hashedFileName = $orderService->name . '_reference' . '_' . $image->hashName();
+                         $hashedFileName = $orderService->name . '_reference' . '_' . $image->getClientOriginalName();
                          $filePath = $userName . '/' . $order->slug . '/' . $orderService->name . '/' . $hashedFileName;
                          Storage::disk('service_images')->put($filePath, file_get_contents($image));
                          $photo = new ServiceImage([

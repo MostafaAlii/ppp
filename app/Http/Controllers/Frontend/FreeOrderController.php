@@ -47,7 +47,7 @@ class FreeOrderController extends Controller
     }
 
     public function updateDetails(Request $request, $orderId) {
-        dd($request->all());
+        //dd($request->all());
         $order = FreeOrder::findOrFail($orderId);
             foreach ($request->service_id as $key => $service) {
                 $userName = $order->name . '_' . $order->email;

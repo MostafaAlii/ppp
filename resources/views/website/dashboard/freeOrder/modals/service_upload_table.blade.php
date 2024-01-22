@@ -29,7 +29,8 @@
                                 Drop your Photos here
                                 <div>Drag one set per time</div>
                             </div>
-                            <div class="imgs_preview_container {{ $service->name }}_photos_container"></div>
+                            <div class="imgs_preview_container {{ $service->name }}_photos_container"></div>                      
+                                  
                         </div>
 
                         <div class="photos-cont services-refs-cont">
@@ -59,4 +60,5 @@
         </div>
 <!-- proccess btn-->
 </form>
+    
 </div>
