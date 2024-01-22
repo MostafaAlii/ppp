@@ -47,15 +47,15 @@
           <span class="page_name">Go to price</span>
         </li>
       
-        {{--<li class="nav_item {{ request()->routeIs('website.examples.index')  ? 'active' : null }}">
-          <a href="{{route('website.examples.index')}}" class="nav_link">Example</a>
-          <span class="page_name">Go to Example</span>
+        <li class="nav_item {{ request()->routeIs('website.examples.index')  ? 'active' : null }}">
+          <a href="{{route('website.examples.index')}}" class="nav_link">Service</a>
+          <span class="page_name">Go to Service</span>
           <ul class="dashboard_icon_dropdown_menu">
               <li><a href="#">عنصر 1</a></li>
               <li><a href="#">عنصر 2</a></li>
               <li><a href="#">عنصر 3</a></li>
           </ul>
-        </li>--}}
+        </li>
       
 
         {{--@auth('web')

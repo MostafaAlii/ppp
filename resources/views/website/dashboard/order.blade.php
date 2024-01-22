@@ -9,7 +9,7 @@ Create Order
 @endsection
 
 @section('content')
-<div class="container-fluid dashboard-container">
+<div class="container dashboard-container">
     <div class="row">
         @include('website.layouts.common.client._sidebar')
         <!-- Start Dashboard -->

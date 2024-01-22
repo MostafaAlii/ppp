@@ -22,7 +22,7 @@ class AuthenticatedSessionController extends Controller {
     {
         $request->authenticate();
         $request->session()->regenerate();
-        return redirect()->route('website.client.dashboard');
+        return redirect()->route('website.orders.index');
     }
 
     /**
