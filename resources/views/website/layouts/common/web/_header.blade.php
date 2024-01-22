@@ -50,11 +50,6 @@
         <li class="nav_item {{ request()->routeIs('website.examples.index')  ? 'active' : null }}">
           <a href="{{route('website.examples.index')}}" class="nav_link">Service</a>
           <span class="page_name">Go to Service</span>
-          <ul class="dashboard_icon_dropdown_menu">
-              <li><a href="#">عنصر 1</a></li>
-              <li><a href="#">عنصر 2</a></li>
-              <li><a href="#">عنصر 3</a></li>
-          </ul>
         </li>
       
 
@@ -80,9 +75,9 @@
         <li class="nav_item {{ request()->routeIs('login')  ? 'active' : null }}">
           <a href="{{ route('login') }}" class="nav_link">Sign In</a>
           <span class="page_name">Login To Your Account</span>
-          <ul class="dashboard_icon_dropdown_menu">
+          {{-- <ul class="dashboard_icon_dropdown_menu">
             <li><a href="{{route('register')}}">Sign-Up</a></li>
-        </ul>
+        </ul> --}}
         </li>
         <!--<li class="nav_item {{ request()->routeIs('register')  ? 'active' : null }}">-->
         <!--  <a href="{{ route('register') }}" class="nav_link">Register</a>-->

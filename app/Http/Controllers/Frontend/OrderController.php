@@ -80,7 +80,6 @@ class OrderController extends Controller
 
     public function updateDetails(Request $request, $orderId)
     {
-
         $order = Order::findOrFail($orderId);
 
         if ($request->proceed == "paypal") {
