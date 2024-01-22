@@ -57,10 +57,15 @@ Create Order
               <td colspan="1" id="total-price" class="total-price"></td>
             </tr>
           </table>
+          <div id="upload-progress-container">
+            <progress id="upload-progress" value="0" max="100"></progress>
+        </div>
+        
           <!-- End Table -->
           <!-- Service Table -->
           @includeWhen(!empty($selectedServices), 'website.dashboard.freeOrder.modals.service_upload_table')
           <!-- Service Table -->
+          
         </div>
       </div>
       <!-- End Dynamic Content -->
@@ -71,6 +76,7 @@ Create Order
 @endsection
 
 @section('js')
+<script src="{{ asset('website/resources/js/order.js') }}"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("select-services-btn").addEventListener("click", function () {

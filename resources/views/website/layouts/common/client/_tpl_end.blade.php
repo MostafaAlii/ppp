@@ -5,7 +5,7 @@
         <script src="{{ asset('website/resources/dashboard/resource/js/bootstrap.min.js') }}" defer ></script>
         <script src="{{ asset('website/resources/dashboard/resource/js/main.js') }}" defer ></script>
         <script src="{{ asset('website/resources/dashboard/resource/js/dashboard.js') }}" defer ></script>
-    <script src="{{ asset('website/resources/js/order.js') }}"></script>
+    
         @yield('js')
     </body>
 </html>

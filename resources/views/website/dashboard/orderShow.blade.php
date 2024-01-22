@@ -89,6 +89,7 @@
 
 @section('js')
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="{{ asset('website/resources/js/old_order.js') }}"></script>
 <script src="https://www.2checkout.com/static/checkout/javascript/direct.min.js"></script>
 <script type="text/javascript">
     function confirmPayment() {
