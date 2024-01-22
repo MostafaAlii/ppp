@@ -57,6 +57,7 @@ Home
       grid-row: unset;
     }
   }
+
 </style>
 @endsection
 

@@ -42,7 +42,7 @@ Route::group(['as' => 'website.'], function () {
         Route::put('orders/{order}/newUpdate', [Frontend\FreeOrderController::class, 'newUpdate'])->name('free-order.newUpdate');
     });
 
-    Route::group(['prefix' => 'page', 'middleware' => ['guest:web']], function () {
+    Route::group(['prefix' => 'page'], function () {
         Route::resource('prices', Cms\PriceController::class);
         Route::resource('examples', Cms\ExampleController::class);
         Route::get('photo_album', [Cms\ExampleController::class, 'photo_album'])->name('photo_album');

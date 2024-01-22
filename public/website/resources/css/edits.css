@@ -241,7 +241,7 @@ header .logo img {
   height: auto !important;
 }
 header .navbar {
-  height: 95px;
+  min-height: 95px;
   overflow: hidden;
   display: flex;
   align-items: center;
