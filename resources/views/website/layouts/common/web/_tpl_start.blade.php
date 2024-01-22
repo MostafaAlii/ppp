@@ -30,6 +30,40 @@
       background-color: #333;
       /* Change to your preferred background color */
     }
+    /************************************************************/
+    header .navbar {
+      min-height: 95px !important;
+    }
+    .dashboard_icon_dropdown_menu {
+        display: none;
+        position: relative;
+        top: 100%;
+        left: 0;
+        width: 150px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .nav_item:hover .dashboard_icon_dropdown_menu {
+      display: block;
+    }
+
+    .dashboard_icon_dropdown_menu li {
+        padding: 10px;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+    .dashboard_icon_dropdown_menu li a {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        padding: 8px;
+        transition: background-color 0.3s;
+    }
+
+    .dashboard_icon_dropdown_menu li a:hover {
+        background-color: #f5f5f5;
+    }
   </style>
   <script>
     // Function to check if the screen width is below a certain threshold

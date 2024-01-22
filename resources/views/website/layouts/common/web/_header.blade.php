@@ -47,18 +47,23 @@
           <span class="page_name">Go to price</span>
         </li>
       
-        <li class="nav_item {{ request()->routeIs('website.examples.index')  ? 'active' : null }}">
+        {{--<li class="nav_item {{ request()->routeIs('website.examples.index')  ? 'active' : null }}">
           <a href="{{route('website.examples.index')}}" class="nav_link">Example</a>
           <span class="page_name">Go to Example</span>
-        </li>
+          <ul class="dashboard_icon_dropdown_menu">
+              <li><a href="#">عنصر 1</a></li>
+              <li><a href="#">عنصر 2</a></li>
+              <li><a href="#">عنصر 3</a></li>
+          </ul>
+        </li>--}}
       
 
-        @auth('web')
+        {{--@auth('web')
         <li class="nav_item" class="{{ request()->routeIs('website.orders.index')  ? 'active' : null }}">
           <a href="{{route('website.orders.index')}}" class="nav_link">ORDER</a>
           <span class="page_name">Go to ORDER</span>
         </li>
-        @endauth
+        @endauth--}}
 
 
         <li class="nav_item {{ request()->routeIs('website.tour.step_one')  ? 'active' : null }}">
@@ -75,6 +80,9 @@
         <li class="nav_item {{ request()->routeIs('login')  ? 'active' : null }}">
           <a href="{{ route('login') }}" class="nav_link">Sign In</a>
           <span class="page_name">Login To Your Account</span>
+          <ul class="dashboard_icon_dropdown_menu">
+            <li><a href="{{route('register')}}">Sign-Up</a></li>
+        </ul>
         </li>
         <!--<li class="nav_item {{ request()->routeIs('register')  ? 'active' : null }}">-->
         <!--  <a href="{{ route('register') }}" class="nav_link">Register</a>-->
@@ -82,12 +90,22 @@
         <!--</li>-->
         @else
         @if(Route::currentRouteName() !== 'website.client.dashboard')
-        <li class="nav_item" class="{{ request()->routeIs('website.client.dashboard')  ? 'active' : null }}">
-          <a href="{{ route('website.client.dashboard') }}" class="nav_link">Dashboard</a>
-          <span class="page_name">@auth('web') {{ get_user_data()->name }} @endauth</span>
-        </li>
+          <li class="nav_item" class="{{ request()->routeIs('website.client.dashboard')  ? 'active' : null }}">
+            <a href="{{ route('website.client.dashboard') }}" class="nav_link">Dashboard</a>
+            <span class="page_name">@auth('web') {{ get_user_data()->name }} @endauth</span>
+            <ul class="dashboard_icon_dropdown_menu">
+                <li><a href="{{route('website.orders.index')}}">ORDER</a></li>
+                <li>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('user-log-out').submit();">Sign-Out</a>
+                    <form id="user-log-out" action="{{ route(get_guard_name().'.logout') }}" method="POST">
+                      @csrf
+                    </form>
+                </li>
+            </ul>
+          </li>
         @endif
         @endguest
+        @if(Route::currentRouteName() == 'website.client.dashboard')
         @auth('web')
         <li class="nav_item">
           <a href="#" onclick="event.preventDefault(); document.getElementById('user-log-out').submit();"
@@ -98,6 +116,7 @@
           <span class="page_name"></span>
         </li>
         @endauth
+        @endif
       </ul>
     </nav>
   </div>
